@@ -11,25 +11,21 @@
 
 import random
 
-ROCK = "r"
-PAPER = "p"
-SCISSORS = "s"
-
 emojis = {
-    "ROCK": "🪨",
-    "PAPER": "📄",
-    "SCISSORS": "✂️"
+    "r": "🪨",
+    "p": "📄",
+    "s": "✂️"
 }
 print("Welcome to Rock, Paper, Scissors!")
-choices = ("ROCK", "PAPER", "SCISSORS")
+choices = (tuple(emojis.keys()))
 
 def get_user_choice():
     while True:
-        choice = input("Enter your choice (ROCK, PAPER, SCISSORS): ").strip().lower()
+        choice = input("Enter your choice (r, p, s): ").strip().lower()
         if choice in choices:
             return choice
         else:
-            print("Invalid choice. Please enter ROCK, PAPER, or SCISSORS.")
+            print("Invalid choice. Please enter r, p, or s.")
 
 def display_choices(user_choice, computer_choice):
     print(f"You chose: {emojis[user_choice]}")
@@ -39,9 +35,9 @@ def determine_winner(user_choice, computer_choice):
     if user_choice == computer_choice:
         return "tie"
     elif (
-        (user_choice == "ROCK" and computer_choice == "SCISSORS") or 
-        (user_choice == "PAPER" and computer_choice == "ROCK") or 
-        (user_choice == "SCISSORS" and computer_choice == "PAPER")):
+        (user_choice == "r" and computer_choice == "s") or 
+        (user_choice == "p" and computer_choice == "r") or 
+        (user_choice == "s" and computer_choice == "p")):
         return "user wins"
     else:
         return "computer wins"
