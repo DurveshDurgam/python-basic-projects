@@ -1,13 +1,10 @@
 import random
 
-
-
 while True:
     print("Welcome to Snake Water Gun Game!")
     user_choice = input("Enter your choice (snake, water, gun): ").strip().lower()
     choices = ["snake", "water", "gun"]
     computer_choice = random.choice(choices)
-
 
     if user_choice not in choices:
         print("Invalid choice! Please choose either 'snake', 'water', or 'gun'.")
